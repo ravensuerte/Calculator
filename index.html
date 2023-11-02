@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body> 
+
+<style>
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+  }
+  .katawan{
+    background-color:gray;
+    text-align: center;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .resulta{
+    height: 60px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    width: 450px;
+    font-size: 30px;
+  }
+  .button{
+    background-color: wheat;
+    cursor: pointer;
+  }
+  .button:hover{
+    background-color: green;
+  }
+  .oppa{
+    font-size:30px ;
+  }
+  input{
+    font-size: 30px;
+  }
+</style>
+  <div class="katawan">
+    <div class="dive">
+      <h1>CALCULATOR</h1>
+      <br><br>
+      <div id="result" class="resulta"></div>
+      <label>
+        <h1>Input First Number</h1>
+        <input type="number" id="num1" required>
+        <br>
+        <p><h4>Choose Operator</h4></p>
+        <select class="oppa" id="operator" required>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+        <br>
+        <h1>Input Second Number</h1>
+        <input type="number" id="num2" required>
+        <br>
+        <input class="button" type="button" value="Calculate" class="sub" onclick="calculate()">
+      </label>
+      
+    
+    </div>
+  </div>
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var operator = document.getElementById("operator").value;
+      var result;
+
+      if (operator === '+') {
+        result = num1 + num2;
+      } else if (operator === '-') {
+        result = num1 - num2;
+      } else if (operator === '*') {
+        result = num1 * num2;
+      } else if (num2 !== 0) {
+        result = num1 / num2;
+      } else if (num2 === 0) {
+        result = "Division by zero is not allowed.";
+      } else {
+        result = "Invalid Operator. Try again.";
+      }
+
+      document.getElementById("result").innerHTML = num1 + " " + operator + " " + num2 + " = " + result;
+    }
+    function resetContent() {
+            var divContent = document.querySelector('.centered-div');
+            divContent.innerHTML = "<h1>This div is centered both horizontally and vertically.</h1><p>Adjust the content as needed.</p>";
+        }
+  </script>
+</body>
+</html>
